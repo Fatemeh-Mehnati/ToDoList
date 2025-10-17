@@ -1,13 +1,21 @@
 # core/project.py
+import uuid
+
 
 class Project:
     """نماینده‌ی یک پروژه در ToDoList"""
 
-    def __init__(self, project_id, name, description):
-        self.id = project_id
+    def __init__(self, name, description, id=None):
+        """
+        Args:
+            name: نام پروژه
+            description: توضیحات پروژه
+            id: شناسه پروژه (اگر None باشه، UUID جدید می‌سازه)
+        """
+        self.id = id if id else str(uuid.uuid4())
         self.name = name
         self.description = description
-        self.tasks = []  
+        self.tasks = []
 
     def add_task(self, task):
         """افزودن تسک جدید به پروژه"""
