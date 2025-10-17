@@ -1,0 +1,28 @@
+# core/project.py
+
+class Project:
+    """نماینده‌ی یک پروژه در ToDoList"""
+
+    def __init__(self, project_id, name, description):
+        self.id = project_id
+        self.name = name
+        self.description = description
+        self.tasks = []  # لیست تسک‌های مربوط به پروژه
+
+    def add_task(self, task):
+        """افزودن تسک جدید به پروژه"""
+        self.tasks.append(task)
+
+    def remove_task(self, task_id):
+        """حذف تسک بر اساس شناسه (Cascade Delete)"""
+        self.tasks = [t for t in self.tasks if t.id != task_id]
+
+    def edit(self, name=None, description=None):
+        """ویرایش نام و توضیح پروژه"""
+        if name:
+            self.name = name
+        if description:
+            self.description = description
+
+    def __repr__(self):
+        return f"Project(id={self.id}, name='{self.name}', description='{self.description}', tasks={len(self.tasks)})"
