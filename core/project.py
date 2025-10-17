@@ -7,7 +7,7 @@ class Project:
         self.id = project_id
         self.name = name
         self.description = description
-        self.tasks = []  # لیست تسک‌های مربوط به پروژه
+        self.tasks = []  
 
     def add_task(self, task):
         """افزودن تسک جدید به پروژه"""
